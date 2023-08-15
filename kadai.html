@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>API</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #content {
+            display: flex;
+            align-items: center;
+        }
+
+        #target {
+            text-align: center;
+            margin-left: 20px; /* 適宜調整 */
+            font-size: 55px; /* フォントサイズを調整 */
+            text-transform: uppercase; /* テキストを大文字にする */
+        }
+
+        button {
+            font-size: 50px; /* ボタンのフォントサイズを調整 */
+        }
+
+        /*　YESの時　*/
+        .red {
+            color: #ffa600;
+        }
+
+        /*　NOの時　*/
+        .blue {
+            color: #c300ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <button onclick="api()">API</button>
+        <p id="target"></p>
+    </div>
+    <script>
+        async function api() {
+            fetch("https://yesno.wtf/api")
+                .then(function (data) {
+                    return data.json();
+                })
+                .then(function (json) {
+                    const word = json["answer"];
+                    const targetElement = document.getElementById("target");
+                    targetElement.textContent = word;
+                    
+                    // YESかNOかでスタイルを変える
+                    if (word === "yes") {
+                        targetElement.className = "red";
+                    } else if (word === "no") {
+                        targetElement.className = "blue";
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
