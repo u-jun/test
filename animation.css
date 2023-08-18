@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+}
+
+#target {
+    text-align: center;
+    margin-left: 20px; /* 適宜調整 */
+    font-size: 55px; /* フォントサイズを調整 */
+    text-transform: uppercase; /* テキストを大文字にする */
+}
+
+button {
+    font-size: 50px; /* ボタンのフォントサイズを調整 */
+}
+
+/*　YESの時　*/
+.red {
+    color: #ffa600;
+}
+
+/*　NOの時　*/
+.blue {
+    color: #c300ff;
+}
+
+/*追加したコード*/
+.api-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.api-button {
+    font-size: 50px;
+}
+
+/*アニメーション機能*/
+.slide-in { /*スライドイン*/
+    transform: translateX(-100%);
+    animation: slideIn 3.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
